@@ -10,12 +10,17 @@ export default function Pagination() {
   const [usersPerPage, setUserssPerPage] = useState(5);
 
   useEffect(() => {
+    let mounted = true;
+
     async function usersList() {
       const response = await await getUsers();
-      setUsers(response);
+      if (mounted) {
+        setUsers(response);
+      }
     }
-
     usersList();
+
+    return () => (mounted = false);
   }, []);
 
   // Get Current users
