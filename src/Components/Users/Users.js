@@ -1,23 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { getUsers } from "../../services/user";
 import User from "./User";
 import { Link } from "react-router-dom";
 
-export default function Users() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    // console.log("Oh I am mounting");
-
-    async function usersList() {
-      const response = await await getUsers();
-      // console.log(response);
-      setUsers(response);
-    }
-
-    usersList();
-  }, []);
-
+export default function Users({ users }) {
   return (
     <div className="list">
       <table className="striped">
@@ -39,12 +23,7 @@ export default function Users() {
           )}
         </tbody>
       </table>
-      <Link
-        to="/save-user"
-        className="btn-floating btn-medium waves-effect waves-light red"
-      >
-        <i className="material-icons">add</i>
-      </Link>
+      <br />
 
       <div className="fixed-action-btn">
         <Link

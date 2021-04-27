@@ -1,15 +1,13 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Counter from "./Components/Counter/Counter";
-import Users from "./Components/Users/Users";
 import Navbar from "./Components/Navbar/Navbar";
 import AddUserForm from "./Components/Form/AddUserForm";
+import Pagination from "./Components/Pagination/Pagination";
 
 function App() {
   return (
     <div className="container">
-      <h1> Welcome to Application </h1>
-
       <BrowserRouter>
         <Navbar />
         <Switch>
@@ -17,7 +15,7 @@ function App() {
             <Counter />
           </Route>
           <Route path="/users">
-            <Users />
+            <Pagination />
           </Route>
           <Route path="/save-user">
             <AddUserForm />
